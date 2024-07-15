@@ -1,26 +1,17 @@
-### Checklist
+### Related Issue(s)
+<!--- [Issue Loomly/devops#1] -->
 
-<!--
-	thank you for contributing to CircleCI Orbs!
-	before submitting your a request, please go through the following
-	items and place an x in the [ ] if they have been completed
--->
+### Background & Summary
+<!--- Explains the background and context from a perspective of unknowing. -->
 
-- [ ] All new jobs, commands, executors, parameters have descriptions
-- [ ] Examples have been added for any significant new features
-- [ ] README has been updated, if necessary
+### Details about Solution Chosen
+<!--- Explains the solution and details about the solution that others may need to know. -->
 
-### Motivation, issues
+### Details about Solution(s) NOT Chosen & Why
+<!--- Explains solutions deliberately not chosen and why. -->
 
-<!---
-	why is this change required? what problem does it solve?
-  paste links to any relevant GitHub issues filed against
-  this repository that this pull request addresses
--->
+### Testing and Deployment Process
+<!--- Explains the process for testing and deploying/applying. -->
 
-### Description
-
-<!---
-  Describe your changes in detail, preferably in an imperative mood,
-  i.e., "add `commandA` to `jobB`"
- -->
+### Risks & Unrelated Components Potentially Affected by Changes
+<!--- Explains any potential gotchas or risks. -->

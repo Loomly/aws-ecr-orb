@@ -4,5 +4,5 @@ description: >
   Build images and push them to the Amazon Elastic Container Registry.
 
 display:
-  source_url: https://github.com/CircleCI-Public/aws-ecr-orb
+  source_url: https://github.com/loomly/aws-ecr-orb
   home_url: https://aws.amazon.com/ecr/

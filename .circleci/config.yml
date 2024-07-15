@@ -1,11 +1,13 @@
 version: 2.1
 setup: true
 orbs:
-  orb-tools: circleci/orb-tools@12.0
+  orb-tools: circleci/orb-tools@11.1
   shellcheck: circleci/shellcheck@3.1
+
 filters: &filters
   tags:
     only: /.*/
+
 workflows:
   lint-pack:
     jobs:
@@ -14,13 +16,19 @@ workflows:
       - orb-tools/pack:
           filters: *filters
       - orb-tools/review:
+          exclude: RC006, RC007, RC009
           filters: *filters
-      - shellcheck/check:
+      - orb-tools/publish:
+          orb-name: loomly/aws-ecr-orb
+          vcs-type: << pipeline.project.type >>
+          requires:
+            [orb-tools/lint, orb-tools/pack]
+          # Use a context to hold your publishing token.
+          context: orb-publishing
           filters: *filters
       # Triggers the next workflow in the Orb Development Kit.
       - orb-tools/continue:
-          orb_name: aws-ecr
-          pipeline_number: << pipeline.number >>
-          vcs_type: << pipeline.project.type >>
-          requires: [orb-tools/lint, orb-tools/review, orb-tools/pack, shellcheck/check]
+          pipeline-number: << pipeline.number >>
+          vcs-type: << pipeline.project.type >>
+          requires: [orb-tools/publish]
           filters: *filters
