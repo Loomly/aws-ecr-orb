@@ -19,8 +19,8 @@ workflows:
           exclude: RC006, RC007, RC009
           filters: *filters
       - orb-tools/publish:
-          orb-name: loomly/aws-ecr-orb
-          vcs-type: << pipeline.project.type >>
+          orb_name: loomly/aws-ecr-orb
+          vcs_type: << pipeline.project.type >>
           requires:
             [orb-tools/lint, orb-tools/pack]
           # Use a context to hold your publishing token.
@@ -28,7 +28,7 @@ workflows:
           filters: *filters
       # Triggers the next workflow in the Orb Development Kit.
       - orb-tools/continue:
-          pipeline-number: << pipeline.number >>
-          vcs-type: << pipeline.project.type >>
+          pipeline_number: << pipeline.number >>
+          vcs_type: << pipeline.project.type >>
           requires: [orb-tools/publish]
           filters: *filters
