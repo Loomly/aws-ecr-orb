@@ -16,7 +16,6 @@ AWS_ECR_EVAL_LIFECYCLE_POLICY_PATH="$(eval echo "${AWS_ECR_STR_LIFECYCLE_POLICY_
 # shellcheck disable=SC2034 # used indirectly via environment in `docker buildx` builds
 BUILDX_NO_DEFAULT_ATTESTATIONS=1
 
-
 if [ -n "${AWS_ECR_STR_EXTRA_BUILD_ARGS}" ]; then
   IFS=" " read -a args -r <<< "${AWS_ECR_STR_EXTRA_BUILD_ARGS[@]}"
   for arg in "${args[@]}"; do
@@ -92,6 +91,7 @@ set -x
     -f "${AWS_ECR_EVAL_PATH}"/"${AWS_ECR_EVAL_DOCKERFILE}" \
     ${docker_tag_args:+$docker_tag_args} \
     --platform "${AWS_ECR_EVAL_PLATFORM}" \
+    --provenance=false \
     --progress plain \
     "$@" \
     "${AWS_ECR_EVAL_BUILD_PATH}"
