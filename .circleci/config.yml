@@ -29,6 +29,7 @@ workflows:
       # Triggers the next workflow in the Orb Development Kit.
       - orb-tools/continue:
           pipeline_number: << pipeline.number >>
+          orb_name: loomly/aws-ecr-orb
           vcs_type: << pipeline.project.type >>
           requires: [orb-tools/publish]
           filters: *filters
